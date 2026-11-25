@@ -1,0 +1,6095 @@
+/* ==========================================
+   RESET & GENERAL SETTINGS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    background-color: #06171b;
+
+    isolation: isolate;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   FIXED BACKGROUND
+========================================== */
+
+.site-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(
+            rgba(3, 17, 22, .30),
+            rgba(3, 17, 22, .30)
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.main-header {
+    width: 100%;
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(4, 19, 24, 0.35);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    position: fixed;
+    z-index: 1000;
+}
+
+
+
+
+
+/* MANTA CINEMATIC BACKGROUND */
+
+@media (min-width: 1024px) {
+
+    .site-background {
+        background: #0b2028 !important;
+        isolation: isolate;
+        overflow: hidden;
+    }
+
+    .site-background::before {
+        content: "";
+        position: absolute;
+        inset: -25px;
+        z-index: -1;
+
+        background:
+            linear-gradient(
+                rgba(3, 17, 22, 0.45),
+                rgba(3, 17, 22, 0.65)
+            ),
+            url("background2.jpg") center / cover no-repeat;
+
+        filter: blur(0px);
+        transform: scale(1.05);
+    }
+
+}
+
+
+/* MOBILE BACKGROUND TRANSPARENT LAYER */
+@media (max-width: 767px) {
+    .site-background::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 17, 22, 0.35);
+        pointer-events: none;
+        z-index: 2;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   LOGO IMAGE
+========================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: auto;
+    height: 150px;
+    max-width: 190px;
+
+    object-fit: contain;
+    display: block;
+}
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.navigation a {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 16px;
+    letter-spacing: 1px;
+
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #54d3cd;
+}
+
+/* ==========================================
+   BOOKING BUTTON
+========================================== */
+
+.booking-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 24px;
+
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+
+    background: transparent;
+    color: #b8e7e5;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    transition: all 0.3s ease;
+
+    flex-shrink: 0;
+}
+
+.booking-button:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+/* ==========================================
+   HAMBURGER BUTTON
+========================================== */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu-toggle span {
+    width: 27px;
+    height: 2px;
+
+    background: #ffffff;
+
+    display: block;
+
+    transition: all 0.3s ease;
+}
+
+/* HAMBURGER ANIMATION */
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+
+    .main-header {
+        padding: 0 4%;
+        min-height: 82px;
+    }
+
+    .navigation {
+        gap: 20px;
+    }
+
+    .navigation a {
+        font-size: 13px;
+    }
+
+    .logo img {
+        height: 50px;
+        max-width: 155px;
+    }
+
+    .booking-button {
+        padding: 12px 18px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+@media (max-width: 700px) {
+
+    .main-header {
+        min-height: 75px;
+        padding: 0 5%;
+    }
+
+    /* LOGO */
+
+    .logo img {
+        height: 120px;
+        max-width: 140px;
+    }
+
+    /* HAMBURGER */
+
+    .menu-toggle {
+        display: flex;
+        order: 3;
+    }
+
+    /* MOBILE NAVIGATION */
+
+    .navigation {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 0;
+
+        background: rgba(4, 19, 24, 0.96);
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        overflow: hidden;
+
+        max-height: 0;
+        opacity: 0;
+
+        visibility: hidden;
+
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .navigation.active {
+        max-height: 400px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navigation a {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 18px 20px;
+
+        font-size: 15px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .navigation a:last-child {
+        border-bottom: none;
+    }
+
+    /* BOOKING BUTTON */
+
+    .booking-button {
+        order: 2;
+
+        padding: 10px 13px;
+
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+
+    .main-header {
+        padding: 0 3%;
+    }
+
+    .logo img {
+        height: 40px;
+        max-width: 115px;
+    }
+
+    .booking-button {
+        padding: 9px 10px;
+        font-size: 9px;
+    }
+
+    .menu-toggle {
+        width: 35px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MANTA HERO SECTION
+========================= */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("hero.jpg");
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(5, 18, 25, 0.78) 0%,
+        rgba(5, 18, 25, 0.48) 50%,
+        rgba(5, 18, 25, 0.15) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    padding: 80px 8%;
+    color: #ffffff;
+}
+
+.hero-tagline {
+    color: #8ee5e2;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    max-width: 850px;
+    font-size: clamp(38px, 6vw, 75px);
+    line-height: 1.12;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-content h2 {
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 400;
+    color: #b8e7e5;
+    margin-bottom: 25px;
+}
+
+.hero-description {
+    max-width: 600px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 35px;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    min-height: 52px;
+    background: #67d5d0;
+    color: #06232b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.hero-button:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* HERO MOBILE */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: 100vh;
+        background-position: center center;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(5, 18, 25, 0.45),
+            rgba(5, 18, 25, 0.78)
+        );
+    }
+
+    .hero-content {
+        padding: 65px 7%;
+    }
+
+    .hero-tagline {
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 50px;
+        line-height: 1.15;
+    }
+
+    .hero-content h2 {
+        font-size: 22px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .hero-button {
+        width: 60%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   INTRO SECTION
+========================= */
+
+.intro-section {
+    position: relative;
+    width: 100%;
+    padding: 110px 8%;
+    background: transparent;
+    color: white;
+}
+
+.intro-content {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.intro-tag {
+    color: #67d5d0;
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.intro-content h2 {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.intro-content h2 span {
+    color: #67d5d0;
+}
+
+.intro-text {
+    max-width: 750px;
+    font-size: 17px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 20px;
+}
+
+.intro-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 55px;
+}
+
+.intro-feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.intro-feature span {
+    color: #67d5d0;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.intro-feature p {
+    font-size: 15px;
+    color: white;
+}
+
+/* INTRO MOBILE */
+
+@media (max-width: 700px) {
+
+    .intro-section {
+        padding: 75px 7%;
+    }
+
+    .intro-content h2 {
+        font-size: 38px;
+    }
+
+    .intro-text {
+        font-size: 15px;
+    }
+
+    .intro-features {
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 40px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MANTA EXPERIENCES SECTION
+========================= */
+
+.experiences-section {
+    background-color: #102c35;
+    padding: 110px 8%;
+    color: #ffffff;
+}
+
+.experiences-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* SECTION HEADING */
+
+.experiences-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 60px;
+}
+
+.experiences-tag {
+    color: #67d5d0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.experiences-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 5vw, 65px);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.experiences-heading h2 span {
+    color: #67d5d0;
+}
+
+.experiences-subtitle {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* GRID */
+
+.experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+/* IMAGE CARDS */
+
+.experience-card {
+    position: relative;
+    display: block;
+    height: 420px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #183b44;
+}
+
+.experience-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.experience-card:hover img {
+    transform: scale(1.08);
+}
+
+
+/* IMAGE OVERLAY */
+
+.experience-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 35px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(4,18,24,0.03) 0%,
+        rgba(4,18,24,0.18) 40%,
+        rgba(4,18,24,0.90) 100%
+    );
+
+    transition: 0.4s ease;
+}
+
+.experience-card:hover .experience-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(4,18,24,0.08) 0%,
+        rgba(4,18,24,0.30) 25%,
+        rgba(4,18,24,0.95) 100%
+    );
+}
+
+
+/* CARD NUMBER */
+
+.experience-number {
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+
+/* CARD TITLE & ARROW */
+
+.experience-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.experience-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+
+/* ARROW */
+
+.experience-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+
+    color: #ffffff;
+    font-size: 20px;
+
+    transition: 0.3s ease;
+}
+
+.experience-card:hover .experience-arrow {
+    background-color: #67d5d0;
+    border-color: #67d5d0;
+    color: #102c35;
+    transform: rotate(45deg);
+}
+
+
+/* CARD DESCRIPTION */
+
+.experience-overlay p {
+    color: rgba(255,255,255,0.80);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 12px;
+    max-width: 400px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .experiences-section {
+        padding: 75px 7%;
+    }
+
+    .experiences-heading {
+        margin-bottom: 40px;
+    }
+
+    .experiences-subtitle {
+        font-size: 15px;
+    }
+
+    .experiences-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .experience-card {
+        height: 360px;
+    }
+
+    .experience-overlay {
+        padding: 25px;
+    }
+
+    .experience-info h3 {
+        font-size: 32px;
+    }
+
+    .experience-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MANTA DIFFERENCE SECTION
+========================= */
+
+.manta-difference {
+    position: relative;
+    width: 100%;
+    padding: 110px 8%;
+    background: transparent;
+    color: #ffffff;
+}
+
+.difference-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.difference-heading {
+    margin-bottom: 35px;
+}
+
+.difference-tag {
+    color: #67d5d0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.difference-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(50px, 6vw, 80px);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.difference-heading h2 span {
+    color: #67d5d0;
+}
+
+.difference-description {
+    max-width: 650px;
+    margin-bottom: 70px;
+}
+
+.difference-description p {
+    color: rgba(255,255,255,0.82);
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.difference-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.difference-item {
+    border-top: 1px solid rgba(255,255,255,0.35);
+    padding-top: 25px;
+}
+
+.difference-number {
+    display: block;
+    color: #67d5d0;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.difference-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.difference-item p {
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 350px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .manta-difference {
+        padding: 75px 7%;
+    }
+
+    .difference-heading h2 {
+        font-size: 52px;
+    }
+
+    .difference-description {
+        margin-bottom: 45px;
+    }
+
+    .difference-description p {
+        font-size: 15px;
+    }
+
+    .difference-features {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .difference-item h3 {
+        font-size: 28px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MANTA GALLERY SECTION
+========================= */
+
+.manta-gallery {
+    position: relative;
+    width: 100%;
+    padding: 110px 8%;
+    background: #102c35;
+    color: #ffffff;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADING */
+
+.gallery-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 60px;
+}
+
+.gallery-tag {
+    color: #67d5d0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.gallery-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 5vw, 65px);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.gallery-heading h2 span {
+    color: #67d5d0;
+}
+
+.gallery-description {
+    color: rgba(255,255,255,0.78);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* GALLERY GRID */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: 270px 270px;
+    gap: 20px;
+}
+
+.gallery-large {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.gallery-small:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.gallery-small:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.gallery-bottom:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.gallery-bottom:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+/* IMAGE ITEMS */
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    background: rgba(255,255,255,0.05);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.07);
+}
+
+/* IMAGE OVERLAY */
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+    pointer-events: none;
+
+    background: linear-gradient(
+        180deg,
+        rgba(5,18,25,0.02) 0%,
+        rgba(5,18,25,0.10) 45%,
+        rgba(5,18,25,0.65) 100%
+    );
+}
+
+.gallery-overlay span {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+/* GALLERY FOOTER */
+
+.gallery-footer {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.gallery-footer p {
+    color: #67d5d0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+}
+
+
+/* =========================
+   MANTA IMAGE VIEWER
+========================= */
+
+.manta-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px 35px;
+
+    background: rgba(3, 17, 22, 0.96);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.25s ease,
+                visibility 0.25s ease;
+}
+
+.manta-viewer.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* IMAGE */
+
+.viewer-stage {
+    position: relative;
+    width: min(100%, 1100px);
+    height: 80vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.viewer-stage img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* CLOSE */
+
+.viewer-close {
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    z-index: 5;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+/* ARROWS */
+
+.viewer-arrow {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+
+    background: transparent;
+    color: #67d5d0;
+    font-size: 17px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.viewer-arrow:hover {
+    background: #67d5d0;
+    color: #102c35;
+    border-color: #67d5d0;
+}
+
+/* IMAGE NUMBER */
+
+.viewer-count {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #b7c8ca;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   MOBILE GALLERY
+========================= */
+
+@media (max-width: 700px) {
+
+    .manta-gallery {
+        padding: 75px 7%;
+    }
+
+    .gallery-heading {
+        margin-bottom: 40px;
+    }
+
+    .gallery-description {
+        font-size: 15px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 250px 180px 180px;
+        gap: 12px;
+    }
+
+    .gallery-large {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+
+    .gallery-small:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .gallery-small:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .gallery-bottom:nth-child(4) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .gallery-bottom:nth-child(5) {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .gallery-overlay {
+        padding: 15px;
+    }
+
+    .gallery-overlay span {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .gallery-footer {
+        margin-top: 30px;
+    }
+
+    .gallery-footer p {
+        font-size: 24px;
+    }
+
+    /* MOBILE VIEWER */
+
+    .manta-viewer {
+        gap: 8px;
+        padding: 45px 10px;
+    }
+
+    .viewer-stage {
+        width: calc(100% - 80px);
+        height: 72vh;
+    }
+
+    .viewer-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+
+    .viewer-close {
+        top: 10px;
+        right: 12px;
+        font-size: 34px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MANTA REVIEWS SECTION
+========================= */
+
+.manta-reviews {
+    position: relative;
+    width: 100%;
+    padding: 110px 8%;
+    background: transparent;
+    color: #ffffff;
+}
+
+.reviews-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* HEADING */
+
+.reviews-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 65px;
+}
+
+.reviews-tag {
+    color: #67d5d0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.reviews-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 5vw, 65px);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.reviews-heading h2 span {
+    color: #67d5d0;
+}
+
+.reviews-subtitle {
+    color: rgba(255,255,255,0.78);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* REVIEWS GRID */
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* REVIEW CARD */
+
+.review-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 320px;
+
+    padding: 35px;
+
+    background: rgba(7,25,33,0.72);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    transition: 0.4s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(103,213,208,0.5);
+    background: rgba(7,25,33,0.88);
+}
+
+
+/* FEATURED CARD */
+
+.review-card-featured {
+    border-color: rgba(103,213,208,0.4);
+}
+
+
+/* TOP */
+
+.review-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.review-stars {
+    color: #67d5d0;
+    font-size: 17px;
+    letter-spacing: 4px;
+}
+
+.review-mark {
+    color: rgba(255,255,255,0.35);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* TEXT */
+
+.review-text {
+    color: rgba(255,255,255,0.85);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+
+/* AUTHOR */
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    border-top: 1px solid rgba(255,255,255,0.15);
+
+    padding-top: 22px;
+}
+
+.review-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #67d5d0;
+    border-radius: 50%;
+
+    color: #67d5d0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+}
+
+.review-author-info h3 {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.review-author-info span {
+    color: rgba(255,255,255,0.55);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* FOOTER */
+
+.reviews-footer {
+    text-align: center;
+    margin-top: 55px;
+}
+
+.reviews-line {
+    width: 60px;
+    height: 1px;
+    background: #67d5d0;
+    margin: 0 auto 25px;
+}
+
+.reviews-footer p {
+    color: #67d5d0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .manta-reviews {
+        padding: 75px 7%;
+    }
+
+    .reviews-heading {
+        margin-bottom: 40px;
+    }
+
+    .reviews-subtitle {
+        font-size: 15px;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .review-card {
+        min-height: 280px;
+        padding: 28px;
+    }
+
+    .review-text {
+        font-size: 22px;
+    }
+
+    .reviews-footer {
+        margin-top: 40px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MANTA BOOKING CTA SECTION
+========================= */
+
+.manta-cta {
+    position: relative;
+    width: 100%;
+    padding: 120px 8%;
+    background-color: #102c35;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.cta-container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+
+/* TAG */
+
+.cta-tag {
+    color: #67d5d0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+
+/* HEADING */
+
+.cta-container h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 7vw, 90px);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.cta-container h2 span {
+    color: #67d5d0;
+}
+
+
+/* DESCRIPTION */
+
+.cta-description {
+    max-width: 600px;
+    margin: 0 auto 40px;
+
+    color: rgba(255,255,255,0.75);
+
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+
+/* BUTTON */
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 18px 35px;
+
+    background-color: #67d5d0;
+    color: #102c35;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    transition: 0.4s ease;
+}
+
+.cta-button span {
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffffff;
+    transform: translateY(-4px);
+}
+
+.cta-button:hover span {
+    transform: translate(3px, -3px);
+}
+
+
+/* BOTTOM DETAILS */
+
+.cta-bottom-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 100px;
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.cta-bottom-line span {
+    color: rgba(255,255,255,0.55);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .manta-cta {
+        padding: 85px 7%;
+    }
+
+    .cta-container h2 {
+        font-size: 55px;
+    }
+
+    .cta-description {
+        font-size: 15px;
+    }
+
+    .cta-button {
+        padding: 17px 28px;
+    }
+
+    .cta-bottom-line {
+        margin-top: 65px;
+        gap: 20px;
+    }
+
+    .cta-bottom-line span {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MANTA CONTACT SECTION
+========================= */
+
+.manta-contact {
+    position: relative;
+    width: 100%;
+    padding: 110px 8%;
+    background: transparent;
+    color: #ffffff;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* HEADING */
+
+.contact-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 65px;
+}
+
+.contact-tag {
+    color: #67d5d0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.contact-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 5vw, 65px);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.contact-heading h2 span {
+    color: #67d5d0;
+}
+
+.contact-description {
+    color: rgba(255,255,255,0.78);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+
+/* CONTACT GRID */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+/* CONTACT CARDS */
+
+.contact-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 35px;
+    min-height: 210px;
+
+    background: rgba(7,25,33,0.78);
+    border: 1px solid rgba(255,255,255,0.14);
+
+    color: #ffffff;
+    text-decoration: none;
+
+    transition: 0.4s ease;
+}
+
+.contact-card:hover {
+    border-color: #67d5d0;
+    transform: translateY(-5px);
+    background: rgba(7,25,33,0.95);
+}
+
+
+/* ICON */
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+
+    border: 1px solid rgba(103,213,208,0.5);
+    border-radius: 50%;
+
+    color: #67d5d0;
+
+    transition: 0.4s ease;
+}
+
+.contact-icon svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+}
+
+.contact-card:hover .contact-icon {
+    background-color: #67d5d0;
+    color: #102c35;
+    border-color: #67d5d0;
+}
+
+
+/* CARD CONTENT */
+
+.contact-card-info {
+    flex: 1;
+}
+
+.contact-card-label {
+    display: block;
+
+    color: #67d5d0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.contact-card-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+.contact-card-info p {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ARROW */
+
+.contact-arrow {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    color: rgba(255,255,255,0.65);
+    font-size: 22px;
+
+    transition: 0.3s ease;
+}
+
+.contact-card:hover .contact-arrow {
+    color: #67d5d0;
+    transform: translate(3px, -3px);
+}
+
+
+/* BOTTOM */
+
+.contact-bottom {
+    text-align: center;
+
+    margin-top: 65px;
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.contact-bottom p {
+    color: #67d5d0;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .manta-contact {
+        padding: 75px 7%;
+    }
+
+    .contact-heading {
+        margin-bottom: 40px;
+    }
+
+    .contact-heading h2 {
+        font-size: 46px;
+    }
+
+    .contact-description {
+        font-size: 15px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .contact-card {
+        min-height: 175px;
+        padding: 28px 25px;
+        gap: 20px;
+    }
+
+    .contact-icon {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+    }
+
+    .contact-icon svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .contact-card-info h3 {
+        font-size: 30px;
+    }
+
+    .contact-arrow {
+        top: 22px;
+        right: 22px;
+    }
+
+    .contact-bottom {
+        margin-top: 40px;
+    }
+
+    .contact-bottom p {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MANTA LUXURY FOOTER
+========================= */
+
+.manta-footer {
+    position: relative;
+    width: 100%;
+
+    background: #102c35;
+    color: #ffffff;
+
+    padding: 85px 8% 25px;
+}
+
+
+/* MAIN CONTAINER */
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    gap: 80px;
+
+    padding-bottom: 65px;
+}
+
+
+/* BRAND */
+
+.footer-brand img {
+    width: 170px;
+    max-width: 100%;
+    height: auto;
+
+    display: block;
+
+    margin-bottom: 25px;
+}
+
+.footer-brand-text {
+    max-width: 340px;
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 13px;
+    line-height: 2;
+
+    margin-bottom: 25px;
+}
+
+.footer-brand-location {
+    color: #67d5d0;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+
+/* NAVIGATION */
+
+.footer-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-title {
+    color: #67d5d0;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+.footer-navigation a {
+    color: rgba(255,255,255,0.7);
+
+    font-size: 13px;
+
+    text-decoration: none;
+
+    margin-bottom: 16px;
+
+    transition: 0.3s ease;
+}
+
+.footer-navigation a:hover {
+    color: #67d5d0;
+    transform: translateX(4px);
+}
+
+
+/* CONNECT */
+
+.footer-connect {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-connect-text {
+    color: rgba(255,255,255,0.65);
+
+    font-size: 13px;
+    line-height: 1.9;
+
+    max-width: 280px;
+
+    margin-bottom: 25px;
+}
+
+
+/* SOCIAL ICONS */
+
+.footer-social-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.footer-social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid rgba(103,213,208,0.4);
+    border-radius: 50%;
+
+    color: #67d5d0;
+
+    text-decoration: none;
+
+    transition: 0.35s ease;
+}
+
+.footer-social-icons a svg {
+    width: 20px;
+    height: 20px;
+
+    display: block;
+}
+
+.footer-social-icons a:hover {
+    background: #67d5d0;
+
+    color: #102c35;
+
+    border-color: #67d5d0;
+
+    transform: translateY(-4px);
+}
+
+
+/* BOTTOM BAR */
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.footer-bottom-left p,
+.footer-bottom-right p {
+    color: rgba(255,255,255,0.5);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .manta-footer {
+        padding: 65px 7% 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding-bottom: 45px;
+    }
+
+    .footer-brand img {
+        width: 145px;
+    }
+
+    .footer-brand-text {
+        font-size: 13px;
+    }
+
+    .footer-navigation a {
+        font-size: 14px;
+    }
+
+    .footer-connect-text {
+        font-size: 13px;
+    }
+
+    .footer-social-icons {
+        gap: 13px;
+    }
+
+    .footer-social-icons a {
+        width: 43px;
+        height: 43px;
+    }
+
+    .footer-social-icons a svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+
+    .footer-bottom-left p,
+    .footer-bottom-right p {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+trips
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================
+   TRIPS INTRO SECTION
+========================== */
+
+.trips-intro {
+    background: #102c35;
+    padding: 250px 20px 75px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.trips-intro-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.trips-intro-label {
+    display: inline-block;
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.trips-intro h1 {
+    color: #ffffff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.trips-intro h1 span {
+    color: #67d5d0;
+    font-style: italic;
+}
+
+.trips-intro p {
+    max-width: 570px;
+    margin: 25px auto 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+}
+
+.trips-intro-line {
+    width: 55px;
+    height: 1px;
+    background: #67d5d0;
+    margin: 40px auto 0;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .trips-intro {
+        padding: 180px 22px 55px;
+        
+    }
+    
+
+    .trips-intro-label {
+        font-size: 10px;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+    }
+
+    .trips-intro h1 {
+        font-size: 43px;
+        line-height: 1.15;
+    }
+
+    .trips-intro p {
+        font-size: 13px;
+        line-height: 1.9;
+        margin-top: 20px;
+    }
+
+    .trips-intro-line {
+        margin-top: 30px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================
+   ISLAND ESCAPES
+========================== */
+
+.island-escapes {
+    background: #102c35;
+    padding: 40px 8% 110px;
+    color: #ffffff;
+}
+
+.island-section-heading {
+    margin-bottom: 55px;
+}
+
+.island-section-heading > span {
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.island-section-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 55px;
+    font-weight: 400;
+    margin: 18px 0 10px;
+}
+
+.island-section-heading h2 em {
+    color: #67d5d0;
+    font-style: italic;
+}
+
+.island-section-heading p {
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+/* GRID */
+
+.island-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.island-item {
+    min-width: 0;
+}
+
+/* IMAGE */
+
+.island-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.island-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.island-item:hover .island-image img {
+    transform: scale(1.05);
+}
+
+/* INFO */
+
+.island-info {
+    padding-top: 25px;
+}
+
+.island-number {
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.island-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.island-info p {
+    color: rgba(255,255,255,0.65);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 1.9;
+    max-width: 330px;
+}
+
+.island-info a {
+    display: inline-flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.island-info a:hover {
+    color: #ffffff;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .island-escapes {
+        padding: 30px 22px 75px;
+    }
+
+    .island-section-heading {
+        margin-bottom: 35px;
+    }
+
+    .island-section-heading h2 {
+        font-size: 43px;
+    }
+
+    .island-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .island-image {
+        aspect-ratio: 1 / 1;
+        max-width: 100%;
+    }
+
+    .island-info {
+        padding-top: 20px;
+    }
+
+    .island-info h3 {
+        font-size: 32px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   MANTA TRIPS HERO - NEW STYLE
+================================= */
+
+.trips-hero {
+    position: relative;
+    width: 100%;
+    height: 78vh;
+    min-height: 580px;
+    max-height: 850px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* DARK OVERLAY */
+
+.trips-hero-shade {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(8, 25, 31, 0.78) 0%,
+        rgba(8, 25, 31, 0.50) 35%,
+        rgba(8, 25, 31, 0.12) 100%
+    );
+
+    z-index: 1;
+}
+
+/* CONTENT */
+
+.trips-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 100px auto 0;
+    padding: 40px 60px;
+
+    text-align: left;
+    color: #ffffff;
+}
+
+/* SMALL TITLE */
+
+.trips-hero-kicker {
+    display: block;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 5px;
+    color: #67d5d0;
+
+    margin-bottom: 30px;
+}
+
+/* MAIN TITLE */
+
+.trips-hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(90px, 11vw, 145px);
+    font-weight: 400;
+
+    line-height: 0.82;
+    letter-spacing: -3px;
+
+    margin: 0;
+    color: #ffffff;
+}
+
+.trips-hero-content h1 em {
+    font-style: italic;
+    color: #67d5d0;
+}
+
+/* DESCRIPTION */
+
+.trips-hero-content p {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 13px;
+    font-weight: 300;
+
+    letter-spacing: 1px;
+    line-height: 1.9;
+
+    max-width: 400px;
+
+    color: rgba(255,255,255,0.85);
+
+    margin-top: 35px;
+}
+
+/* BOTTOM DETAILS */
+
+.trips-hero-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 35px;
+
+    margin-top: 55px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.70);
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+    .trips-hero {
+        height: 75vh;
+        min-height: 520px;
+        max-height: 720px;
+
+        background-position: center;
+    }
+
+    .trips-hero-shade {
+        background: linear-gradient(
+            0deg,
+            rgba(8, 25, 31, 0.75) 0%,
+            rgba(8, 25, 31, 0.40) 60%,
+            rgba(8, 25, 31, 0.20) 100%
+        );
+    }
+
+    .trips-hero-content {
+        margin-top: 70px;
+        padding: 35px 25px;
+        text-align: left;
+    }
+
+    .trips-hero-kicker {
+        font-size: 9px;
+        letter-spacing: 3px;
+        margin-bottom: 24px;
+    }
+
+    .trips-hero-content h1 {
+        font-size: 78px;
+        line-height: 0.88;
+        letter-spacing: -1px;
+    }
+
+    .trips-hero-content p {
+        font-size: 12px;
+        line-height: 1.9;
+
+        max-width: 280px;
+
+        margin-top: 25px;
+    }
+
+    .trips-hero-bottom {
+        gap: 18px;
+        flex-wrap: wrap;
+
+        margin-top: 40px;
+
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   MANTA TRIP DETAILS - NEW DESIGN
+========================================= */
+
+.mb-trip {
+    background: #102c35;
+    color: #ffffff;
+    padding: 60px 6%;
+}
+
+.mb-trip-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    column-gap: 38px;
+    row-gap: 24px;
+
+    align-items: start;
+}
+
+/* IMAGE */
+
+.mb-trip-image {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.mb-trip-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+}
+
+/* INTRO */
+
+.mb-trip-intro {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.mb-trip-eyebrow {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #67d5d0;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.mb-trip-intro h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0 0 16px;
+}
+
+.mb-trip-intro h2 em {
+    color: #67d5d0;
+    font-weight: 400;
+}
+
+.mb-trip-intro p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #c4d3d6;
+    max-width: 580px;
+    margin: 0;
+}
+
+/* QUICK DETAILS */
+
+.mb-trip-details {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border-top: 1px solid rgba(255,255,255,0.13);
+    border-bottom: 1px solid rgba(255,255,255,0.13);
+
+    padding: 18px 0;
+}
+
+.mb-trip-detail {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.mb-trip-detail-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    color: #67d5d0;
+}
+
+.mb-trip-detail-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.mb-trip-detail-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mb-trip-label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    color: #67d5d0;
+}
+
+.mb-trip-detail-text strong {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* INCLUDED / EXCLUDED */
+
+.mb-trip-features {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.mb-trip-list h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 0 15px;
+}
+
+.mb-trip-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mb-trip-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+
+    color: #c4d3d6;
+    margin-bottom: 10px;
+}
+
+/* SVG ICONS */
+
+.mb-trip-check,
+.mb-trip-cross {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    display: inline-flex;
+}
+
+.mb-trip-check {
+    color: #67d5d0;
+}
+
+.mb-trip-cross {
+    color: #a7b8bc;
+}
+
+.mb-trip-check svg,
+.mb-trip-cross svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* FOOTER */
+
+.mb-trip-footer {
+    grid-column: 1 / -1;
+
+    border-top: 1px solid rgba(255,255,255,0.13);
+
+    padding-top: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.mb-trip-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mb-trip-price > span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #67d5d0;
+}
+
+.mb-trip-price strong {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.mb-trip-price small {
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    color: #c4d3d6;
+}
+
+/* BOOK BUTTON */
+
+.mb-trip-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    padding: 13px 20px;
+
+    background: #67d5d0;
+    color: #102c35;
+
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+
+    transition: 0.3s ease;
+}
+
+.mb-trip-book svg {
+    width: 16px;
+    height: 16px;
+}
+
+.mb-trip-book:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* TABLET */
+
+@media (max-width: 800px) {
+
+    .mb-trip-container {
+        grid-template-columns: 280px 1fr;
+        column-gap: 25px;
+    }
+
+    .mb-trip-intro h2 {
+        font-size: 48px;
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .mb-trip {
+        padding: 38px 5%;
+    }
+
+    .mb-trip-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* CENTER IMAGE */
+
+    .mb-trip-image {
+        grid-column: 1;
+        grid-row: auto;
+
+        width: 100%;
+        max-width: 280px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* INTRO */
+
+    .mb-trip-intro {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .mb-trip-intro h2 {
+        font-size: 45px;
+        margin-bottom: 12px;
+    }
+
+    .mb-trip-intro p {
+        font-size: 12px;
+        line-height: 1.85;
+    }
+
+    .mb-trip-eyebrow {
+        font-size: 9px;
+        margin-bottom: 10px;
+    }
+
+    /* DETAILS */
+
+    .mb-trip-details {
+        grid-column: 1;
+        padding: 15px 0;
+    }
+
+    .mb-trip-detail-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .mb-trip-detail-text strong {
+        font-size: 12px;
+    }
+
+    /* FEATURES */
+
+    .mb-trip-features {
+        grid-column: 1;
+        gap: 22px;
+    }
+
+    .mb-trip-list h3 {
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
+
+    .mb-trip-list li {
+        font-size: 11px;
+        gap: 8px;
+        margin-bottom: 9px;
+    }
+
+    .mb-trip-check,
+    .mb-trip-cross {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* FOOTER */
+
+    .mb-trip-footer {
+        grid-column: 1;
+        padding-top: 16px;
+        gap: 15px;
+    }
+
+    .mb-trip-price strong {
+        font-size: 30px;
+    }
+
+    /* SMALL BUTTON */
+
+    .mb-trip-book {
+        padding: 11px 16px;
+        font-size: 9px;
+        gap: 10px;
+    }
+
+    .mb-trip-book svg {
+        width: 14px;
+        height: 14px;
+    }
+
+}
+
+/* VERY SMALL MOBILE */
+
+@media (max-width: 380px) {
+
+    .mb-trip-features {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .mb-trip-image {
+        max-width: 250px;
+    }
+
+}
+
+
+/* SPACE BETWEEN TRIPS */
+
+body {
+    background: #0b2028;
+}
+
+.mb-trip {
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(103, 213, 208, 0.12);
+}
+
+@media (max-width: 600px) {
+    .mb-trip {
+        margin-bottom: 50px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BEFORE YOU SET SAIL */
+
+.manta-preparation {
+    background: #0b2028;
+    padding: 90px 7%;
+}
+
+.manta-preparation-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.manta-preparation-header > span {
+    color: #67d5d0;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.manta-preparation-header h2 {
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.manta-preparation-header h2 em {
+    color: #67d5d0;
+    font-weight: 400;
+}
+
+.manta-preparation-header p {
+    color: rgba(255,255,255,0.6);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+}
+
+.manta-preparation-container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.prep-card {
+    background: #102c35;
+    padding: 38px 35px;
+    border: 1px solid rgba(103,213,208,0.12);
+}
+
+.prep-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.prep-heading-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #67d5d0;
+    background: rgba(103,213,208,0.09);
+    border: 1px solid rgba(103,213,208,0.18);
+}
+
+.prep-heading-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.prep-card-heading h3 {
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.prep-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.prep-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: rgba(255,255,255,0.78);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.prep-icon {
+    color: #67d5d0;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.prep-icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+    .manta-preparation {
+        padding: 75px 5%;
+    }
+
+    .prep-card {
+        padding: 30px 24px;
+    }
+
+    .prep-list li {
+        font-size: 12px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .manta-preparation {
+        padding: 65px 6%;
+    }
+
+    .manta-preparation-header {
+        margin-bottom: 35px;
+    }
+
+    .manta-preparation-header h2 {
+        font-size: 39px;
+    }
+
+    .manta-preparation-header p {
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .manta-preparation-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .prep-card {
+        padding: 27px 22px;
+    }
+
+    .prep-card-heading {
+        margin-bottom: 25px;
+    }
+
+    .prep-card-heading h3 {
+        font-size: 25px;
+    }
+
+    .prep-list {
+        gap: 19px;
+    }
+
+    .prep-list li {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MANTA EXPERIENCE SECTION */
+
+.manta-experience {
+    background: #0b2028;
+    padding: 100px 7%;
+}
+
+.manta-experience-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 75px;
+}
+
+.manta-experience-image {
+    width: 100%;
+    height: 430px;
+    overflow: hidden;
+}
+
+.manta-experience-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.manta-experience-content {
+    color: #fff;
+    text-align: left;
+}
+
+.manta-experience-label {
+    color: #67d5d0;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.manta-experience-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    line-height: 1.05;
+    font-weight: 500;
+    margin: 22px 0;
+}
+
+.manta-experience-content h2 em {
+    color: #67d5d0;
+    font-weight: 400;
+}
+
+.manta-experience-content p {
+    color: rgba(255,255,255,0.72);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 2;
+    max-width: 440px;
+    margin-bottom: 32px;
+}
+
+.manta-experience-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    padding: 13px 20px;
+    border: 1px solid #67d5d0;
+    color: #67d5d0;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+}
+
+.manta-experience-btn:hover {
+    background: #67d5d0;
+    color: #0b2028;
+}
+
+.manta-experience-btn span {
+    font-size: 16px;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+    .manta-experience {
+        padding: 75px 6%;
+    }
+
+    .manta-experience-container {
+        gap: 35px;
+    }
+
+    .manta-experience-image {
+        height: 350px;
+    }
+
+    .manta-experience-content h2 {
+        font-size: 46px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .manta-experience {
+        padding: 60px 6%;
+    }
+
+    .manta-experience-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .manta-experience-image {
+        height: 260px;
+    }
+
+    .manta-experience-content h2 {
+        font-size: 43px;
+        margin: 18px 0;
+    }
+
+    .manta-experience-content p {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .manta-experience-btn {
+        padding: 12px 16px;
+        font-size: 9px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about us 
+
+
+
+
+
+
+
+/* =================================
+   ABOUT US - HERO SECTION
+================================= */
+
+.about-hero {
+    position: relative;
+    min-height: 680px;
+    width: 100%;
+
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+   
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1250px;
+
+    margin: auto;
+    padding: 250px 7% 60px;
+
+    color: #ffffff;
+}
+
+.about-hero-kicker {
+    display: block;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+    color: #67d5d0;
+}
+
+.about-hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 82px;
+    line-height: 0.98;
+    font-weight: 500;
+
+    margin: 28px 0;
+
+    color: #ffffff;
+}
+
+.about-hero-content h1 em {
+    color: #67d5d0;
+    font-weight: 400;
+}
+
+.about-hero-content p {
+    max-width: 460px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+
+    color: rgba(255,255,255,0.82);
+}
+
+.about-hero-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 510px;
+
+    margin-top: 75px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255,255,255,0.28);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.75);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .about-hero {
+        min-height: 600px;
+        background-position: 62% center;
+    }
+
+    
+
+    .about-hero-content {
+        padding: 210px 7% 45px;
+    }
+
+    .about-hero-kicker {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .about-hero-content h1 {
+        font-size: 57px;
+        line-height: 1;
+        margin: 25px 0;
+    }
+
+    .about-hero-content p {
+        max-width: 310px;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .about-hero-bottom {
+        margin-top: 65px;
+        font-size: 7px;
+        letter-spacing: 1.2px;
+        gap: 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   ABOUT STORY SECTION
+================================= */
+
+.about-story {
+    width: 100%;
+    background: #102c35;
+    padding: 110px 7%;
+    overflow: hidden;
+}
+
+.about-story-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 85px;
+}
+
+/* IMAGE */
+
+.about-story-image {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+}
+
+.about-story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.about-story-image:hover img {
+    transform: scale(1.04);
+}
+
+.about-image-label {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    padding: 12px 16px;
+
+    background: rgba(8, 25, 31, 0.65);
+}
+
+/* CONTENT */
+
+.about-story-content {
+    color: #fff;
+}
+
+.about-story-kicker {
+    display: block;
+    color: #67d5d0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+.about-story-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 1.08;
+
+    margin: 0 0 30px;
+}
+
+.about-story-content h2 em {
+    display: block;
+    color: #67d5d0;
+    font-weight: 400;
+}
+
+.about-story-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2.1;
+
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 18px;
+}
+
+.about-story-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 40px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(103,213,208,0.3);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #67d5d0;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .about-story {
+        padding: 75px 7%;
+    }
+
+    .about-story-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-story-image {
+        height: 380px;
+    }
+
+    .about-story-content h2 {
+        font-size: 43px;
+    }
+
+    .about-story-content p {
+        font-size: 12px;
+        line-height: 2;
+    }
+
+    .about-story-footer {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   MANTA WHY CHOOSE US
+================================= */
+
+.manta-why {
+    position: relative;
+    width: 100%;
+    padding: 105px 6% 115px;
+    background: transparent;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* HEADING */
+
+.manta-why-heading {
+    margin: 0 auto 55px;
+}
+
+.manta-why-label {
+    display: inline-block;
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.manta-why-heading h2 {
+    color: #ffffff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.manta-why-heading h2 em {
+    color: #67d5d0;
+    font-weight: 400;
+}
+
+.manta-why-line {
+    width: 65px;
+    height: 1px;
+    background: #67d5d0;
+    margin: 22px auto 0;
+}
+
+/* CARDS GRID */
+
+.manta-why-grid {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* INDIVIDUAL CARD */
+
+.manta-why-card {
+    min-height: 265px;
+    padding: 35px 23px 30px;
+    background: rgba(5, 30, 39, 0.78);
+    border: 1px solid rgba(103, 213, 208, 0.20);
+    border-radius: 15px;
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    transition: all .35s ease;
+}
+
+.manta-why-card:hover {
+    transform: translateY(-7px);
+    background: rgba(5, 38, 47, 0.90);
+    border-color: rgba(103, 213, 208, 0.55);
+}
+
+/* ICON */
+
+.manta-why-icon {
+    width: 66px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: #67d5d0;
+    background: rgba(103, 213, 208, 0.10);
+    border: 1px solid rgba(103, 213, 208, 0.40);
+    border-radius: 17px;
+    transition: all .35s ease;
+}
+
+.manta-why-icon svg {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.manta-why-card:hover .manta-why-icon {
+    background: rgba(103, 213, 208, 0.19);
+    transform: scale(1.06);
+}
+
+/* TEXT */
+
+.manta-why-card h3 {
+    color: #ffffff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0 0 13px;
+}
+
+.manta-why-card p {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.9;
+    margin: 0;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    .manta-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 650px;
+        gap: 18px;
+    }
+
+    .manta-why {
+        padding: 85px 5%;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .manta-why {
+        padding: 75px 18px 85px;
+    }
+
+    .manta-why-heading {
+        margin-bottom: 35px;
+    }
+
+    .manta-why-heading h2 {
+        font-size: 43px;
+    }
+
+    .manta-why-label {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+
+    .manta-why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .manta-why-card {
+        min-height: 235px;
+        padding: 25px 12px 22px;
+        border-radius: 12px;
+    }
+
+    .manta-why-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 18px;
+        border-radius: 14px;
+    }
+
+    .manta-why-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .manta-why-card h3 {
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+
+    .manta-why-card p {
+        font-size: 10px;
+        line-height: 1.8;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================
+   MANTA GUEST REVIEWS
+========================== */
+
+.manta-reviews {
+    background: #102c35;
+    padding: 110px 6%;
+    overflow: hidden;
+}
+
+.reviews-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.reviews-label {
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.reviews-heading h2 {
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 500;
+    margin: 18px 0;
+}
+
+.reviews-heading h2 em {
+    color: #67d5d0;
+}
+
+.reviews-heading p {
+    color: rgba(255,255,255,.65);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.reviews-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.review-card {
+    background: rgba(5, 25, 32, .48);
+    border: 1px solid rgba(103, 213, 208, .18);
+    border-radius: 12px;
+    padding: 30px 27px;
+    display: flex;
+    flex-direction: column;
+    min-height: 255px;
+    transition: .35s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(103, 213, 208, .55);
+    background: rgba(5, 25, 32, .7);
+}
+
+.review-stars {
+    color: #d9ad62;
+    font-size: 18px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.review-text {
+    color: rgba(255,255,255,.85);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 0 0 28px;
+    flex: 1;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(103,213,208,.15);
+    border: 1px solid rgba(103,213,208,.35);
+    color: #67d5d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.review-author h3 {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 5px;
+}
+
+.review-author span {
+    color: rgba(255,255,255,.5);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: .4px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .manta-reviews {
+        padding: 75px 18px;
+    }
+
+    .reviews-heading {
+        margin-bottom: 35px;
+    }
+
+    .reviews-heading h2 {
+        font-size: 42px;
+    }
+
+    .reviews-heading p {
+        font-size: 11px;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .review-card {
+        min-height: 225px;
+        padding: 25px 22px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==============================
+   MANTA BRAND IDENTITY
+============================== */
+
+.manta-identity {
+    position: relative;
+    width: 100%;
+    padding: 110px 8% 90px;
+    background: transparent;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Top line */
+
+.identity-top {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 85px;
+}
+
+.identity-label,
+.identity-location {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #a9c3c7;
+    white-space: nowrap;
+}
+
+.identity-line {
+    height: 1px;
+    flex: 1;
+    background: rgba(255,255,255,0.2);
+}
+
+/* Main heading */
+
+.identity-heading {
+    text-align: center;
+    margin-bottom: 95px;
+}
+
+.identity-heading h2 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 10vw, 135px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -3px;
+}
+
+.identity-heading h2 em {
+    color: #67d5d0;
+    font-weight: 400;
+}
+
+.identity-heading p {
+    max-width: 460px;
+    margin: 25px auto 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2;
+    color: #c0d0d2;
+}
+
+/* Three principles */
+
+.identity-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.22);
+    border-bottom: 1px solid rgba(255,255,255,0.22);
+}
+
+.identity-item {
+    position: relative;
+    padding: 38px 35px 42px;
+    min-height: 225px;
+}
+
+.identity-item:not(:last-child) {
+    border-right: 1px solid rgba(255,255,255,0.18);
+}
+
+.identity-number {
+    display: block;
+    margin-bottom: 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    color: #67d5d0;
+}
+
+.identity-item h3 {
+    margin: 0 0 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.identity-item h3 span {
+    color: #67d5d0;
+}
+
+.identity-item p {
+    max-width: 260px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: #b7c8ca;
+}
+
+/* Bottom line */
+
+.identity-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.identity-footer span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: #9eb6ba;
+}
+
+.identity-footer b {
+    color: #67d5d0;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+
+    .manta-identity {
+        padding: 75px 7% 65px;
+    }
+
+    .identity-top {
+        gap: 12px;
+        margin-bottom: 65px;
+    }
+
+    .identity-label,
+    .identity-location {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .identity-heading {
+        margin-bottom: 65px;
+    }
+
+    .identity-heading h2 {
+        font-size: clamp(55px, 13vw, 85px);
+        letter-spacing: -2px;
+    }
+
+    .identity-heading p {
+        max-width: 300px;
+        font-size: 11px;
+    }
+
+    .identity-values {
+        grid-template-columns: 1fr;
+    }
+
+    .identity-item {
+        min-height: auto;
+        padding: 30px 10px 32px;
+    }
+
+    .identity-item:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .identity-number {
+        margin-bottom: 12px;
+        font-size: 20px;
+    }
+
+    .identity-item h3 {
+        font-size: 17px;
+    }
+
+    .identity-item p {
+        max-width: 300px;
+        font-size: 11px;
+    }
+
+    .identity-footer {
+        gap: 15px;
+    }
+
+    .identity-footer span {
+        font-size: 7px;
+        letter-spacing: 1.2px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==============================
+   MANTA FINAL CTA
+============================== */
+
+.manta-final-cta {
+    position: relative;
+    width: 100%;
+    min-height: 570px;
+    padding: 100px 7% 35px;
+    background: #102c35;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.final-cta-content {
+    width: 100%;
+    max-width: 1050px;
+    text-align: center;
+}
+
+/* Label */
+
+.final-cta-label {
+    display: inline-block;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: #67d5d0;
+}
+
+/* Heading */
+
+.final-cta-content h2 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(75px, 11vw, 145px);
+    font-weight: 400;
+    line-height: 0.83;
+    letter-spacing: -3px;
+}
+
+.final-cta-content h2 em {
+    color: #67d5d0;
+    font-weight: 400;
+}
+
+/* Description */
+
+.final-cta-content > p {
+    max-width: 470px;
+    margin: 35px auto 38px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 2;
+    color: #c0d0d2;
+}
+
+/* Buttons */
+
+.final-cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.final-cta-buttons a {
+    min-height: 50px;
+    padding: 0 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+}
+
+.final-cta-primary {
+    background: #67d5d0;
+    color: #102c35;
+    border: 1px solid #67d5d0;
+}
+
+.final-cta-primary:hover {
+    background: transparent;
+    color: #67d5d0;
+}
+
+.final-cta-primary span {
+    font-size: 16px;
+}
+
+.final-cta-secondary {
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+.final-cta-secondary:hover {
+    border-color: #67d5d0;
+    color: #67d5d0;
+}
+
+/* Bottom Details */
+
+.final-cta-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 105px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.final-cta-bottom span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: #9eb6ba;
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+
+    .manta-final-cta {
+        min-height: 500px;
+        padding: 85px 7% 28px;
+    }
+
+    .final-cta-label {
+        font-size: 8px;
+        letter-spacing: 2px;
+        margin-bottom: 35px;
+    }
+
+    .final-cta-content h2 {
+        font-size: clamp(65px, 17vw, 95px);
+        letter-spacing: -2px;
+    }
+
+    .final-cta-content > p {
+        max-width: 310px;
+        font-size: 11px;
+        margin: 28px auto 32px;
+    }
+
+    .final-cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .final-cta-buttons a {
+        width: 100%;
+        max-width: 260px;
+        min-height: 48px;
+    }
+
+    .final-cta-bottom {
+        margin-top: 75px;
+        gap: 10px;
+    }
+
+    .final-cta-bottom span {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==============================
+   MANTA SIGNATURE SECTION
+============================== */
+
+.manta-signature {
+    position: relative;
+    width: 100%;
+    padding: 85px 7% 75px;
+    background: transparent;
+    overflow: hidden;
+    text-align: center;
+    color: #ffffff;
+}
+
+.signature-content {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Small Label */
+
+.signature-label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: #67d5d0;
+}
+
+/* Brand Name */
+
+.signature-content h2 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(100px, 19vw, 230px);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: 12px;
+    color: rgba(255,255,255,0.10);
+}
+
+/* Divider */
+
+.signature-divider {
+    width: 65px;
+    height: 1px;
+    margin: 22px auto;
+    background: #67d5d0;
+}
+
+/* Description */
+
+.signature-content > p {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 29px);
+    font-weight: 400;
+    font-style: italic;
+    color: #e4eeee;
+}
+
+/* Bottom Details */
+
+.signature-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin-top: 45px;
+}
+
+.signature-details span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: #a9c3c7;
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+
+    .manta-signature {
+        padding: 65px 6% 55px;
+    }
+
+    .signature-label {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .signature-content h2 {
+        font-size: 24vw;
+        letter-spacing: 5px;
+    }
+
+    .signature-divider {
+        margin: 15px auto;
+    }
+
+    .signature-content > p {
+        font-size: 21px;
+        line-height: 1.5;
+    }
+
+    .signature-details {
+        gap: 15px 20px;
+        margin-top: 30px;
+    }
+
+    .signature-details span {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+contact  
+
+
+
+
+
+
+
+/* ================================
+   MANTA CONTACT HERO
+================================ */
+
+.manta-contact-page {
+    width: 100%;
+}
+
+.contact-hero {
+    min-height: 650px;
+    padding: 250px 9% 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.contact-hero-content {
+    max-width: 850px;
+}
+
+.contact-eyebrow {
+    display: inline-block;
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+}
+
+.contact-hero h1 {
+    color: #ffffff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: 1px;
+    margin: 0 0 28px;
+}
+
+.contact-hero h1 span {
+    color: #67d5d0;
+    font-style: italic;
+}
+
+.contact-hero-content p {
+    max-width: 510px;
+    color: rgba(255,255,255,0.78);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+    margin: 0 0 35px;
+}
+
+.contact-hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 35px;
+    padding: 16px 23px;
+    border: 1px solid #67d5d0;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.contact-hero-button span {
+    color: #67d5d0;
+    font-size: 19px;
+}
+
+.contact-hero-button:hover {
+    background: #67d5d0;
+    color: #102c35;
+}
+
+.contact-hero-button:hover span {
+    color: #102c35;
+}
+
+.contact-hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.65);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .contact-hero {
+        min-height: 620px;
+        padding: 180px 7% 35px;
+    }
+
+    .contact-hero h1 {
+        font-size: clamp(43px, 11vw, 65px);
+        line-height: 1.02;
+    }
+
+    .contact-hero-content p {
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .contact-hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 8px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CONTACT INFORMATION */
+
+.manta-contact-info {
+    background: #102c35;
+    padding: 75px 9%;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.contact-info-heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.contact-info-heading > span {
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.contact-info-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 500;
+    margin: 10px 0 0;
+}
+
+.contact-info-heading h2 em {
+    color: #67d5d0;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 950px;
+    margin: auto;
+}
+
+.contact-info-card {
+    min-height: 205px;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.13);
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.contact-info-card:hover {
+    border-color: #67d5d0;
+    background: rgba(103,213,208,0.07);
+    transform: translateY(-4px);
+}
+
+.contact-card-icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 15px;
+    color: #67d5d0;
+}
+
+.contact-card-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.contact-info-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin: 0 0 9px;
+}
+
+.contact-info-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 17px;
+}
+
+.contact-info-card > span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    color: #67d5d0;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .manta-contact-info {
+        padding: 60px 7%;
+    }
+
+    .contact-info-heading h2 {
+        font-size: 36px;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        gap: 13px;
+    }
+
+    .contact-info-card {
+        min-height: 175px;
+    }
+
+}
+.contact-card-icon.whatsapp-icon {
+    color: #67d5d0;
+    width: 34px;
+    height: 34px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   MANTA BOOKING SECTION
+================================ */
+
+.manta-booking-section {
+    padding: 100px 7%;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.booking-intro {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.booking-intro > span {
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.booking-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 5vw, 55px);
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.booking-intro h2 em {
+    color: #67d5d0;
+}
+
+.booking-intro p {
+    color: rgba(255,255,255,0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.manta-booking-box {
+    width: 100%;
+    max-width: 620px;
+    margin: auto;
+    padding: 38px;
+    box-sizing: border-box;
+    background: #102c35;
+    border: 1px solid rgba(103,213,208,0.25);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.booking-box-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.booking-box-heading span {
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.booking-box-heading h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 500;
+    margin: 7px 0 0;
+}
+
+.booking-box-mark {
+    color: #67d5d0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-style: italic;
+}
+
+.booking-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    margin-bottom: 22px;
+}
+
+.booking-form-field label {
+    color: rgba(255,255,255,0.8);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.booking-form-field input,
+.booking-form-field select {
+    width: 100%;
+    height: 48px;
+    padding: 0 13px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 0;
+    outline: none;
+    background: #173943;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color-scheme: dark;
+}
+
+.booking-form-field select option {
+    background: #102c35;
+    color: #fff;
+}
+
+.booking-form-field input:focus,
+.booking-form-field select:focus {
+    border-color: #67d5d0;
+}
+
+.booking-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.booking-guests-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 0;
+    margin-top: 2px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.booking-guests-total strong {
+    color: #67d5d0;
+    font-size: 11px;
+}
+
+.manta-booking-submit {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border: 1px solid #67d5d0;
+    background: #67d5d0;
+    color: #102c35;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.manta-booking-submit span {
+    font-size: 19px;
+}
+
+.manta-booking-submit:hover {
+    background: transparent;
+    color: #67d5d0;
+}
+
+.booking-assurance {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.65);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+}
+
+.booking-assurance span:first-child::first-letter,
+.booking-assurance span:last-child::first-letter {
+    color: #67d5d0;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .manta-booking-section {
+        padding: 70px 6%;
+    }
+
+    .booking-intro {
+        margin-bottom: 30px;
+    }
+
+    .manta-booking-box {
+        padding: 25px 18px;
+    }
+
+    .booking-form-row {
+        gap: 12px;
+    }
+
+    .booking-form-field input,
+    .booking-form-field select {
+        font-size: 10px;
+        padding: 0 8px;
+    }
+
+    .booking-assurance {
+        gap: 13px;
+        font-size: 8px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   MANTA FAQ - GOOD TO KNOW
+================================= */
+
+.manta-faq-section {
+    background: transparent;
+    padding: 85px 9%;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.faq-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+}
+
+.faq-heading > span {
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.faq-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.faq-heading h2 em {
+    color: #67d5d0;
+}
+
+.faq-heading p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.13);
+    transition: 0.3s ease;
+}
+
+.faq-item[open] {
+    border-color: #67d5d0;
+}
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 21px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-icon {
+    color: #67d5d0;
+    font-size: 22px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 24px 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+}
+
+.faq-bottom {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.faq-bottom p {
+    color: #67d5d0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.faq-bottom a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    border: 1px solid #67d5d0;
+    padding: 13px 22px;
+    transition: 0.3s ease;
+}
+
+.faq-bottom a:hover {
+    background: #67d5d0;
+    color: #102c35;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .manta-faq-section {
+        padding: 65px 7%;
+    }
+
+    .faq-heading h2 {
+        font-size: 34px;
+    }
+
+    .faq-heading p {
+        font-size: 11px;
+    }
+
+    .faq-item summary {
+        padding: 18px 15px;
+        font-size: 11px;
+    }
+
+    .faq-answer {
+        padding: 0 15px 18px;
+        font-size: 10px;
+    }
+
+    .faq-bottom {
+        margin-top: 35px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   MANTA LANGUAGE DROPDOWN
+================================= */
+
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 12px;
+    flex-shrink: 0;
+    z-index: 1001;
+}
+
+.language-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 13px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.language-button:hover {
+    background: #b8e7e5;
+    border-color: #ffffff;
+}
+
+.language-arrow {
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.language-dropdown.open .language-arrow {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 175px;
+    padding: 6px;
+    background: #b8e7e5;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.language-dropdown.open .language-menu {
+    display: block;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 10px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 3px;
+    transition: 0.25s ease;
+}
+
+.language-option:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.language-option.current-language {
+    color: #000000;
+}
+
+.language-disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.language-disabled small {
+    margin-left: auto;
+    font-size: 9px;
+    color: #000000;
+    white-space: nowrap;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .language-dropdown {
+        margin-left: 8px;
+    }
+
+    .language-button {
+        min-height: 36px;
+        padding: 0 10px;
+        gap: 10px;
+    }
+
+    .language-menu {
+        min-width: 165px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MANTA PREMIUM TYPOGRAPHY */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-content h1,
+.hero-content h2,
+.intro-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+}
+
+.hero-content h1 {
+    letter-spacing: 1px;
+}
+
+.intro-content h2 {
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MANTA WHATSAPP QUICK CONTACT */
+
+.manta-whatsapp {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.manta-whatsapp-label {
+    background: #ffffff;
+    color: #172c35;
+    padding: 11px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.18);
+    transition: 0.3s ease;
+}
+
+.manta-whatsapp-icon {
+    width: 58px;
+    height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 22px rgba(37,211,102,0.4);
+    transition: 0.3s ease;
+    animation: mantaWhatsAppPulse 2s infinite;
+}
+
+.manta-whatsapp-icon svg {
+    width: 31px;
+    height: 31px;
+    fill: #ffffff;
+}
+
+.manta-whatsapp:hover .manta-whatsapp-label {
+    background: #25D366;
+    color: #ffffff;
+}
+
+.manta-whatsapp:hover .manta-whatsapp-icon {
+    transform: scale(1.1);
+}
+
+@keyframes mantaWhatsAppPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37,211,102,0.45);
+    }
+    70% {
+        box-shadow: 0 0 0 13px rgba(37,211,102,0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+@media (max-width: 768px) {
+    .manta-whatsapp {
+        right: 15px;
+        bottom: 18px;
+        gap: 8px;
+    }
+
+    .manta-whatsapp-label {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .manta-whatsapp-icon {
+        width: 53px;
+        height: 53px;
+    }
+}
