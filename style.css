@@ -6093,3 +6093,48 @@ body {
         height: 53px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FORCE TEXT STYLE FOR ARROWS */
+.faq-bottom a span,
+.experience-arrow,
+.contact-arrow,
+.viewer-arrow,
+.cta-button span,
+.manta-experience-btn span,
+.final-cta-primary span,
+.contact-hero-button span,
+.manta-booking-submit span {
+    font-variant-emoji: text !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
