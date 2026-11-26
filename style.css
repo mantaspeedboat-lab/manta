@@ -6138,3 +6138,368 @@ body {
     font-variant-emoji: text !important;
     font-family: Arial, Helvetica, sans-serif !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MANTA GLOBAL ARROW ICON */
+
+.manta-arrow-icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   MANTA – PREMIUM MOBILE HEADER
+   LARGE LOGO EDITION
+========================================== */
+
+@media (max-width: 700px) {
+
+    /* MAIN HEADER */
+
+    .main-header {
+        display: grid;
+
+        grid-template-columns: 1fr auto;
+
+        grid-template-areas:
+            "logo language"
+            "booking menu";
+
+        align-items: center;
+
+        column-gap: 12px;
+        row-gap: 8px;
+
+        width: 100%;
+        min-height: auto;
+
+        padding: 12px 5%;
+
+        box-sizing: border-box;
+    }
+
+
+    /* LOGO */
+
+    .logo {
+        grid-area: logo;
+
+        display: flex;
+        align-items: center;
+        justify-self: start;
+
+        flex-shrink: 0;
+    }
+
+    .logo img {
+        display: block;
+
+        width: auto;
+        height: 100px;
+        max-width: 220px;
+
+        object-fit: contain;
+    }
+
+
+    /* LANGUAGE DROPDOWN */
+
+    .language-dropdown {
+        grid-area: language;
+
+        justify-self: end;
+        align-self: center;
+    }
+
+
+    /* BOOKING BUTTON */
+
+    .booking-button {
+        grid-area: booking;
+
+        justify-self: start;
+        align-self: center;
+
+        order: initial;
+
+        padding: 10px 13px;
+
+        font-size: 10px;
+        letter-spacing: 1px;
+
+        white-space: nowrap;
+    }
+
+
+    /* HAMBURGER BUTTON */
+
+    .menu-toggle {
+        grid-area: menu;
+
+        display: flex;
+
+        justify-self: end;
+        align-self: center;
+
+        order: initial;
+
+        width: 42px;
+        height: 42px;
+
+        margin: 0;
+
+        flex-shrink: 0;
+    }
+
+
+    /* MOBILE NAVIGATION */
+
+    .navigation {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 0;
+
+        background: rgba(4, 19, 24, 0.96);
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        overflow: hidden;
+
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .navigation.active {
+        max-height: 400px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navigation a {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 18px 20px;
+
+        font-size: 15px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .navigation a:last-child {
+        border-bottom: none;
+    }
+
+
+    /* REMOVE OLD EXTRA ROW */
+
+    .main-header::after {
+        content: none;
+    }
+
+
+    /* HOME HERO – KEEP TEXT BELOW HEADER */
+
+    .hero-content {
+        padding: 175px 7% 65px;
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+
+    .main-header {
+        padding: 10px 3%;
+
+        column-gap: 8px;
+        row-gap: 7px;
+    }
+
+    .logo img {
+        height: 85px;
+        max-width: 185px;
+    }
+
+    .booking-button {
+        padding: 9px 10px;
+
+        font-size: 9px;
+        letter-spacing: 0.8px;
+    }
+
+    .menu-toggle {
+        width: 38px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 700px) {
+
+    .main-header {
+        flex-wrap: wrap;
+        row-gap: 0px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        min-height: auto;
+    }
+
+    .logo img {
+        /* Keep the current logo size */
+        height: 120px;
+        max-width: 140px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   MANTA BOOKING – MOBILE DATE FIX
+================================= */
+
+@media (max-width: 600px) {
+
+    .booking-form-row {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        width: 100%;
+        min-width: 0;
+    }
+
+    .booking-form-field {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .booking-form-field input,
+    .booking-form-field select {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .booking-form-field input[type="date"] {
+        display: block;
+        -webkit-appearance: none;
+        appearance: none;
+        min-width: 0;
+        max-width: 100%;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+}
